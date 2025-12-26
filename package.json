@@ -1,0 +1,20 @@
+{
+  "name": "com.tsutsumikiriku.yourmaidtools",
+  "displayName": "YourMaidTools",
+  "version": "1.0.0",
+  "unity": "6.0",
+  "unityRelease": "",
+  "description": "Tools and utilities for the YourMaidTools Unity project.",
+  "keywords": ["yourmaid","tools","editor","runtime"],
+  "category": "Tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsutsumikiriku/YourMaidTools.git"
+  },
+  "author": {
+    "name": "tsutsumikiriku",
+    "email": "",
+    "url": "https://github.com/tsutsumikiriku"
+  },
+  "license": "MIT"
+}
