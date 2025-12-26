@@ -5,4 +5,4 @@
 
 2.左上の➕ボタンを押してinstall package from git urlを押す
 
-3.このリンクをペーストしてインストーリーする```https://github.com/tsutsumikirku/YourMaidTools.git```
+3.このリンクをペーストしてインストールする```https://github.com/tsutsumikirku/YourMaidTools.git```
