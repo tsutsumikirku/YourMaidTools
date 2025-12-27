@@ -25,7 +25,6 @@ namespace YourMaidTools
         }
         public override void PlayingAnimation(float progress)
         {
-            Debug.Log($"progress={progress} image={(image!=null)} tmp={(textMeshProUGUI!=null)}");
             Color color = Color.Lerp(defaultColor, changeColor, progress);
             if (image != null)
             {
