@@ -7,6 +7,10 @@
 
 3.このリンクをペーストしてインストールする```https://github.com/tsutsumikirku/YourMaidTools.git```
 
+## 前提アセット
+以下のアセットが導入されている前提になります。
+- [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ja-JP&srsltid=AfmBOorhZbMokJcaKvI-vD14OiwmOOFwa8oWHreoYJW6xBfzqpoeBMFM)
+- [UniTask](https://github.com/Cysharp/UniTask)
 
 
 ## 各クラスの使い方
