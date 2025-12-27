@@ -13,6 +13,14 @@
 - [UniTask](https://github.com/Cysharp/UniTask)
 
 
-## 各クラスの使い方
+# 各クラスの使い方
+## ツール関連
 ### YMSafeArea
 Canvas内に空のオブジェクトを作成しアタッチすることによって実行時セーフエリアと同じサイズ位置になります
+### YMButton
+ボタンのコンポーネントです、ボタンにアニメーションをつけることが可能です
+## Animation関連
+### YMScaleAnimation
+スケールが変化するアニメーションを作る時に使えます。
+### YMTextScaleAnimation
+TextMeshProUGUIのテキストのスケールを変化するアニメーションを作る時に使えます。
