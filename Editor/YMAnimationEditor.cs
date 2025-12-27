@@ -134,4 +134,26 @@ namespace YourMaidTools
             }
         }
     }
+    [CustomEditor(typeof(YMPictureChangeAnimation))]
+    public class YMPictureChangeAnimationEditor : YMAnimationEditor
+    {
+        List<SerializedProperty> excludePropList = new List<SerializedProperty>();
+        string[] childExcludeProps = new string[] { "changeAlpha", "changeSprite" };
+        string[] excludeContent = new string[] { "変化後のアルファ値", "変化後の画像" };
+        public override string[] OnVirtualEnable()
+        {
+            foreach (var propName in childExcludeProps)
+            {
+                excludePropList.Add(serializedObject.FindProperty(propName));
+            }
+            return childExcludeProps;
+        }
+        public override void OnVirtualInspectorGUI()
+        {
+            for (int i = 0; i < excludePropList.Count; i++)
+            {
+                EditorGUILayout.PropertyField(excludePropList[i], new GUIContent(excludeContent[i]));
+            }
+        }
+    }
 }
