@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-using YourMaidTools;
+
 namespace YourMaidTools
 {
     public class YMScaleAnimation : YMAnimationBase
