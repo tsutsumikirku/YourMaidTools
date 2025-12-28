@@ -14,7 +14,10 @@ namespace YourMaidTools
             if(!playOnStart)return;
             foreach (var anim in animations)
             {
-                await anim.AnimationBase.PlayAnimation(true);
+                if(anim.IsPlayAwait)
+                await anim.AnimationBase.PlayAnimation(anim.IsPlayAwait);
+                else
+                anim.AnimationBase.PlayAnimation(true);
             }
         }
         public async UniTask PlayAnimation()
@@ -23,7 +26,10 @@ namespace YourMaidTools
             cancellationTokenSource = new CancellationTokenSource();
             foreach (var anim in animations)
             {
+                if(anim.IsPlayAwait)
                 await anim.AnimationBase.PlayAnimation(anim.IsPlayAwait, cancellationTokenSource.Token);
+                else
+                anim.AnimationBase.PlayAnimation(anim.IsPlayAwait, cancellationTokenSource.Token).Forget();
             }
             
         }
