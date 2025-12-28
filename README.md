@@ -27,3 +27,5 @@ Canvas内に空のオブジェクトを作成しアタッチすることによ�
 TextMeshProUGUIのテキストのスケールを変化するアニメーションを作る時に使えます。
 ### YMColorChangeAnimation
 ImageかTextMeshProUGUIのスケールを変化するアニメーションを作る時に使えます
+### YMPictureChangeAnimation
+元の画像からクロスフェードで画像を変更することができます
