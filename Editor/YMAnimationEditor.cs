@@ -23,7 +23,7 @@ namespace YourMaidTools
             animationTypeProp = serializedObject.FindProperty("AnimationType");
             animationCurveProp = serializedObject.FindProperty("AnimationCurve");
             easeTypeProp = serializedObject.FindProperty("EaseType");
-            loopTypeProp = serializedObject.FindProperty("isLoop");
+            loopTypeProp = serializedObject.FindProperty("IsLoop");
             excludeProps = OnVirtualEnable();
         }
         public virtual string[] OnVirtualEnable()

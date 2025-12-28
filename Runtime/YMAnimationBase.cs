@@ -16,12 +16,12 @@ namespace YourMaidTools
         public YMAnimationType AnimationType = YMAnimationType.Ease;
         public AnimationCurve AnimationCurve = AnimationCurve.Linear(0, 0, 1, 1);
         public Ease EaseType = Ease.Linear;
-        public bool isLoop = false;
+        public bool IsLoop = false;
         private float progress = 0f;
         private Tween tween;
         public async UniTask PlayAnimation(bool waitForCompletion = false, CancellationToken cancellationToken = default)
         {
-            if (isLoop)
+            if (IsLoop)
             {
                 while(cancellationToken.IsCancellationRequested == false)
                 {
