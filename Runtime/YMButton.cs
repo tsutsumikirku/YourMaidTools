@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -39,7 +40,10 @@ namespace YourMaidTools
                     if (animation == null || animation.AnimationBase == null) continue;
                     try
                     {
+                        if(animation.IsPlayAwait)
                         await animation.AnimationBase.PlayAnimation(animation.IsPlayAwait, cancellationToken?.Token ?? CancellationToken.None);
+                        else
+                        animation.AnimationBase.PlayAnimation(animation.IsPlayAwait, cancellationToken?.Token ?? CancellationToken.None).Forget();
                     }
                     catch (OperationCanceledException)
                     {

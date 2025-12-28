@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 using System.Threading;
+using NUnit.Framework;
 
 namespace YourMaidTools
 {
@@ -15,10 +16,41 @@ namespace YourMaidTools
         public YMAnimationType AnimationType = YMAnimationType.Ease;
         public AnimationCurve AnimationCurve = AnimationCurve.Linear(0, 0, 1, 1);
         public Ease EaseType = Ease.Linear;
+        public bool isLoop = false;
         private float progress = 0f;
         private Tween tween;
         public async UniTask PlayAnimation(bool waitForCompletion = false, CancellationToken cancellationToken = default)
         {
+            if (isLoop)
+            {
+                while(cancellationToken.IsCancellationRequested == false)
+                {
+                    tween?.Kill();
+                    switch (AnimationType)
+                    {
+                        case YMAnimationType.Ease:
+                            // getter, setter, endValue, duration
+                            tween = DOTween.To(() => progress, x => { progress = x; PlayingAnimation(x); }, 1f, Duration).SetEase(EaseType);
+                            break;
+                        case YMAnimationType.AnimationCurve:
+                            tween = DOTween.To(() => progress, x => { progress = x; PlayingAnimation(x); }, 1f, Duration).SetEase(AnimationCurve);
+                            break;
+                    }
+                    await WaitEndOfTween(cancellationToken);
+                    tween?.Kill();
+                    switch (AnimationType)
+                    {
+                        case YMAnimationType.Ease:
+                            tween = DOTween.To(() => progress, x => { progress = x; PlayingAnimation(x); }, 0f, Duration).SetEase(EaseType);
+                            break;
+                        case YMAnimationType.AnimationCurve:
+                            tween = DOTween.To(() => progress, x => { progress = x; PlayingAnimation(x); }, 0f, Duration).SetEase(AnimationCurve);
+                            break;
+                    }
+                    await WaitEndOfTween(cancellationToken);
+                }
+                return;
+            }
             tween?.Kill();
             switch (AnimationType)
             {

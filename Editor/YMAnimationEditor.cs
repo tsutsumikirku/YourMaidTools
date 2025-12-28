@@ -14,6 +14,7 @@ namespace YourMaidTools
         SerializedProperty animationTypeProp;
         SerializedProperty animationCurveProp;
         SerializedProperty easeTypeProp;
+        SerializedProperty loopTypeProp;
         string[] excludeProps;
 
         void OnEnable()
@@ -22,6 +23,7 @@ namespace YourMaidTools
             animationTypeProp = serializedObject.FindProperty("AnimationType");
             animationCurveProp = serializedObject.FindProperty("AnimationCurve");
             easeTypeProp = serializedObject.FindProperty("EaseType");
+            loopTypeProp = serializedObject.FindProperty("isLoop");
             excludeProps = OnVirtualEnable();
         }
         public virtual string[] OnVirtualEnable()
@@ -34,6 +36,7 @@ namespace YourMaidTools
             serializedObject.Update();
             OnVirtualInspectorGUI();
             EditorGUILayout.PropertyField(durationProp, new GUIContent("アニメーション時間"));
+            EditorGUILayout.PropertyField(loopTypeProp, new GUIContent("ループ再生"));
             EditorGUILayout.PropertyField(animationTypeProp, new GUIContent("アニメーションの設定方式"));
             if (animationTypeProp != null)
             {
@@ -56,6 +59,7 @@ namespace YourMaidTools
                 "AnimationType",
                 "AnimationCurve",
                 "EaseType",
+                "isLoop"
             };
             if (excludeProps != null)
                 excludes.AddRange(excludeProps);
