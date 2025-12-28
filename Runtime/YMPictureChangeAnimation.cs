@@ -4,7 +4,7 @@ namespace YourMaidTools
 {
     public class YMPictureChangeAnimation : YMAnimationBase
     {
-        [SerializeField] private float changeAlpha = 0.5f;
+        [SerializeField] private float changeAlpha = 1f;       
         [SerializeField] private Sprite changeSprite;
         private Image selfImage;
         private Image image;
