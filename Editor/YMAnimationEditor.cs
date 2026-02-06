@@ -160,4 +160,26 @@ namespace YourMaidTools
             }
         }
     }
+    [CustomEditor(typeof(YMMoveAnimation))]
+    public class YMMoveAnimationEditor : YMAnimationEditor
+    {
+        List<SerializedProperty> excludePropList = new List<SerializedProperty>();
+        string[] childExcludeProps = new string[] { "moveOffset" };
+        string[] excludeContent = new string[] { "移動オフセット" };
+        public override string[] OnVirtualEnable()
+        {
+            foreach (var propName in childExcludeProps)
+            {
+                excludePropList.Add(serializedObject.FindProperty(propName));
+            }
+            return childExcludeProps;
+        }
+        public override void OnVirtualInspectorGUI()
+        {
+            for (int i = 0; i < excludePropList.Count; i++)
+            {
+                EditorGUILayout.PropertyField(excludePropList[i], new GUIContent(excludeContent[i]));
+            }
+        }
+    }
 }
