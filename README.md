@@ -31,3 +31,5 @@ TextMeshProUGUIのテキストのスケールを変化するアニメーショ�
 ImageかTextMeshProUGUIのスケールを変化するアニメーションを作る時に使えます
 ### YMPictureChangeAnimation
 元の画像からクロスフェードで画像を変更することができます
+### YMMoveAnimation
+UIオブジェクトを目標地点まで移動させることができます
