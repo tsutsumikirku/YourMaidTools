@@ -13,8 +13,10 @@ namespace YourMaidTools
         public YMButtonType ButtonType;
         [Tooltip("クリックされたときに呼ばれるイベントを指定します。")]
         public UnityEvent OnClick;
+        [Tooltip("マウスカーソルがボタンの上にあるときに呼ばれるアニメーションを指定します。")]
+        public Animation[] PointerEnterAnimation;
         [Tooltip("クリックされたときに呼ばれるアニメーションを指定します。")]
-        public Animation[] Animations;
+        public Animation[] OnClickAnimations;
         public Action OnClickAction;
         private bool isPointerInside = false;
         private CancellationTokenSource cancellationToken;
@@ -32,10 +34,10 @@ namespace YourMaidTools
         }
         private async void PlayAnimations()
         {
-            if (Animations == null) return;
+            if (OnClickAnimations == null) return;
             try
             {
-                foreach (var animation in Animations)
+                foreach (var animation in OnClickAnimations)
                 {
                     if (animation == null || animation.AnimationBase == null) continue;
                     try
@@ -59,10 +61,10 @@ namespace YourMaidTools
         }
         private async void ReverseAnimations()
         {
-            if (Animations == null) return;
+            if (OnClickAnimations == null) return;
             try
             {
-                foreach (var animation in Animations)
+                foreach (var animation in OnClickAnimations)
                 {
                     if (animation == null || animation.AnimationBase == null) continue;
                     try
@@ -108,7 +110,7 @@ namespace YourMaidTools
             cancellationToken?.Cancel();
             cancellationToken?.Dispose();
             cancellationToken = null;
-            foreach (var animation in Animations)
+            foreach (var animation in OnClickAnimations)
             {
                 animation.AnimationBase.Init();
             }
