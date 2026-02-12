@@ -59,7 +59,7 @@ namespace YourMaidTools
                 "AnimationType",
                 "AnimationCurve",
                 "EaseType",
-                "isLoop"
+                "IsLoop"
             };
             if (excludeProps != null)
                 excludes.AddRange(excludeProps);
